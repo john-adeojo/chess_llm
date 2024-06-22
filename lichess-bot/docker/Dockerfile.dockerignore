@@ -1,0 +1,6 @@
+docker/*
+!docker/copy_files.sh
+docs/
+wiki/
+.git*
+**/__pycache__
