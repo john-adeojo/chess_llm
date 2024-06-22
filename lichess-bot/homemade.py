@@ -13,6 +13,17 @@ import random
 from lib.engine_wrapper import MinimalEngine
 from lib.types import MOVE, HOMEMADE_ARGS_TYPE
 import logging
+from llm_agents.prompts import (
+    chess_engine_prompt,
+    master1_template, 
+    master2_template,
+    master3_template,
+    proposer_moa_layer_n_template,
+    aggregator_moa_template,
+)
+
+from llm_agents.llms import get_llm_response_groq, get_llm_response_openai
+
 
 
 # Use this logger variable to print messages to the console or log files.
@@ -27,150 +38,153 @@ class ExampleEngine(MinimalEngine):
     pass
 
 
-# Bot names and ideas from tom7's excellent eloWorld video
+def get_lichess_pgn(game_id):
+    url = f"https://lichess.org/game/export/{game_id}.pgn"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.text
+    else:
+        return None
 
-class RandomMove(ExampleEngine):
-    """Get a random move."""
-
-    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:
-        """Choose a random move."""
-        return PlayResult(random.choice(list(board.legal_moves)), None)
-
-
-class Alphabetical(ExampleEngine):
-    """Get the first move when sorted by san representation."""
-
-    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:
-        """Choose the first move alphabetically."""
-        moves = list(board.legal_moves)
-        moves.sort(key=board.san)
-        return PlayResult(moves[0], None)
-
-
-class FirstMove(ExampleEngine):
-    """Get the first move when sorted by uci representation."""
-
-    def search(self, board: chess.Board, *args: HOMEMADE_ARGS_TYPE) -> PlayResult:
-        """Choose the first move alphabetically in uci representation."""
-        moves = list(board.legal_moves)
-        moves.sort(key=str)
-        return PlayResult(moves[0], None)
-
-
-class ComboEngine(ExampleEngine):
-    """
-    Get a move using multiple different methods.
-
-    This engine demonstrates how one can use `time_limit`, `draw_offered`, and `root_moves`.
-    """
+class SingleAgentLLM(MinimalEngine):
 
     def search(self, board: chess.Board, time_limit: Limit, ponder: bool, draw_offered: bool, root_moves: MOVE) -> PlayResult:
-        """
-        Choose a move using multiple different methods.
-
-        :param board: The current position.
-        :param time_limit: Conditions for how long the engine can search (e.g. we have 10 seconds and search up to depth 10).
-        :param ponder: Whether the engine can ponder after playing a move.
-        :param draw_offered: Whether the bot was offered a draw.
-        :param root_moves: If it is a list, the engine should only play a move that is in `root_moves`.
-        :return: The move to play.
-        """
-        if isinstance(time_limit.time, int):
-            my_time = time_limit.time
-            my_inc = 0
-        elif board.turn == chess.WHITE:
-            my_time = time_limit.white_clock if isinstance(time_limit.white_clock, int) else 0
-            my_inc = time_limit.white_inc if isinstance(time_limit.white_inc, int) else 0
-        else:
-            my_time = time_limit.black_clock if isinstance(time_limit.black_clock, int) else 0
-            my_inc = time_limit.black_inc if isinstance(time_limit.black_inc, int) else 0
-
-        possible_moves = root_moves if isinstance(root_moves, list) else list(board.legal_moves)
-
-        if my_time / 60 + my_inc > 10:
-            # Choose a random move.
-            move = random.choice(possible_moves)
-        else:
-            # Choose the first move alphabetically in uci representation.
-            possible_moves.sort(key=str)
-            move = possible_moves[0]
-        return PlayResult(move, None, draw_offered=draw_offered)
-    
-# config_path = os.path.join(os.path.dirname(__file__), 'api_keys.yaml')
-config_path = 'api_keys.yaml'
-
-def load_config(file_path):
-    with open(file_path, 'r') as file:
-        config = yaml.safe_load(file)
-        for key, value in config.items():
-            os.environ[key] = value
-
-load_config(config_path)
-
-
-class LLMEngine(MinimalEngine):
-
-    def search(self, board: chess.Board, time_limit: Limit, ponder: bool, draw_offered: bool, root_moves: MOVE) -> PlayResult:
-
-        api_key = os.getenv('OPENAI_API_KEY')
-        headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {api_key}'
-        }
 
         possible_moves = root_moves if isinstance(root_moves, list) else list(board.legal_moves)
         move_history = list(board.move_stack)
         white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
         black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
-
-        model_endpoint = 'https://api.openai.com/v1/chat/completions'
-        temperature = 0
-        model = 'gpt-4o'
-        system_prompt = f"""
-            You are a chess grand-master. You are currently playing a chess game against an opponent.
-
-            It is your turn to play. You are playing as {'White' if board.turn == chess.WHITE else 'Black'}.
-
-            The current board state is represented as a FEN string.
-
-            State of Board FEN:{board.fen()}
-
-            These are all of the moves played so far:
-            white moves: f{white_moves}
-            black moves: f{black_moves}
-
-            Here are the possible moves you can play:
-            {possible_moves}
-
-            Think about the best move you can play and return it as a UCI string following the json format below:
-            {{"move": "best move in UCI format"}}
-
-        """
-        query = """
-            Your opponent has just played a move. Now you must play a move.
-        """
-
-
-        payload = {
-                    "model": model,
-                    "response_format": {"type": "json_object"},
-                    "messages": [
-                        {
-                            "role": "system",
-                            "content": system_prompt
-                        },
-                        {
-                            "role": "user",
-                            "content": query
-                        }
-                    ],
-                    "stream": False,
-                    "temperature": temperature,
-                }
+        playing_as = 'White' if board.turn == chess.WHITE else 'Black'
+        # board_state = board.fen()
+        board_state = get_lichess_pgn('llmchess')
+        logging.info(board_state)
+        master1_system_prompt = chess_engine_prompt.format(playing_as=playing_as, 
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves
+                                                        )
         
-        response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
-        response_json = response_dict.json()
-        response = json.loads(response_json['choices'][0]['message']['content'])
-        move = response['move']
+        master1_response = get_llm_response_openai(json_mode=True, system_prompt=master1_system_prompt, temperature=0)
+        logger.info(master1_response)
 
+        move = master1_response['best_move']
+        return PlayResult(move, None, draw_offered=draw_offered)
+    
+
+
+# Agent
+class LLMMultiAgent(MinimalEngine):
+
+    def search(self, board: chess.Board, time_limit: Limit, ponder: bool, draw_offered: bool, root_moves: MOVE) -> PlayResult:
+
+        possible_moves = root_moves if isinstance(root_moves, list) else list(board.legal_moves)
+        move_history = list(board.move_stack)
+        white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
+        black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
+        playing_as = 'White' if board.turn == chess.WHITE else 'Black'
+        board_state = get_lichess_pgn('llmchess')
+        # board_state = board.fen()
+        master1_system_prompt = master1_template.format(playing_as=playing_as, 
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves
+                                                        )
+        
+        master1_response = get_llm_response_openai(json_mode=False, system_prompt=master1_system_prompt)
+        logger.info(master1_response)
+
+        master2_system_prompt = master2_template.format(playing_as=playing_as, 
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        proposed_moves=master1_response
+                                                        )
+        master2_response = get_llm_response_openai(json_mode=False, system_prompt=master2_system_prompt)
+        logger.info(master2_response)
+
+        master3_response = master3_template.format(playing_as=playing_as,
+                                                    board_state=board_state,
+                                                    white_moves=white_moves,
+                                                    black_moves=black_moves,
+                                                    proposed_moves=master1_response,
+                                                    possible_moves=possible_moves,
+                                                    responses=master2_response
+                                                    )
+        
+        master3_response = get_llm_response_openai(json_mode=True, system_prompt=master3_response)
+
+        
+        logger.info(master3_response)
+
+        move = master3_response['best_move']
+        return PlayResult(move, None, draw_offered=draw_offered)
+    
+class LLMMixtureofAgents(MinimalEngine):
+
+    def search(self, board: chess.Board, time_limit: Limit, ponder: bool, draw_offered: bool, root_moves: MOVE) -> PlayResult:
+
+        possible_moves = root_moves if isinstance(root_moves, list) else list(board.legal_moves)
+        move_history = list(board.move_stack)
+        white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
+        black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
+        playing_as = 'White' if board.turn == chess.WHITE else 'Black'
+        board_state = board.fen()
+        proposer_layer1_prompt = master1_template.format(playing_as=playing_as, 
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves
+                                       )
+        
+        
+        model = 'llama3-70b-8192'
+        proposer_1_1 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+        proposer_1_2 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+        proposer_1_3 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+
+        proposer_2_1_prompt = proposer_moa_layer_n_template.format(playing_as=playing_as, 
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves,
+                                                        previous_responses=proposer_1_1
+                                                        )
+        proposer_2_2_prompt = proposer_moa_layer_n_template.format(playing_as=playing_as,
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves,
+                                                        previous_responses=proposer_1_2
+                                                        )
+        proposer_2_3_prompt = proposer_moa_layer_n_template.format(playing_as=playing_as,
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        possible_moves=possible_moves,
+                                                        previous_responses=proposer_1_3
+                                                        )
+        
+        proposer_2_1 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_1_prompt, model=model, temperature=0.5)
+        proposer_2_2 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_2_prompt, model=model, temperature=0.5)
+        proposer_2_3 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_3_prompt, model=model, temperature=0.5)
+
+
+        final_layers_concatenated_responses = proposer_2_1 + proposer_2_2 + proposer_2_3
+
+
+        aggregator_prompt = aggregator_moa_template.format(playing_as=playing_as,
+                                                        board_state=board_state, 
+                                                        white_moves=white_moves, 
+                                                        black_moves=black_moves, 
+                                                        previous_responses=final_layers_concatenated_responses
+                                                        )
+        
+        aggregator_response = get_llm_response_openai(json_mode=True, system_prompt=aggregator_prompt)
+        
+
+        # master2_response = get_llm_response(json_mode=True, system_prompt=master2_system_prompt)
+        # logger.info(master2_response)
+        move = aggregator_response['best_move']
         return PlayResult(move, None, draw_offered=draw_offered)

@@ -55,6 +55,16 @@ def is_new_rate_limit(response: requests.models.Response) -> bool:
     return response.status_code == 429
 
 
+# def is_final(exception: Exception) -> bool:
+#     """If `is_final` returns True then we won't retry."""
+#     # Retry for HTTP 400 errors as well
+#     if isinstance(exception, HTTPError) and exception.response is not None:
+#         if exception.response.status_code == 400:
+#             return False  # Allow retry for HTTP 400 errors
+#         return exception.response.status_code < 500
+#     return False
+
+
 def is_final(exception: Exception) -> bool:
     """If `is_final` returns True then we won't retry."""
     return isinstance(exception, HTTPError) and exception.response is not None and exception.response.status_code < 500
@@ -189,6 +199,7 @@ class Lichess:
                           max_time=60,
                           interval=0.1,
                           giveup=is_final,
+                          max_tries=5,
                           on_backoff=backoff_handler,
                           backoff_log_level=logging.DEBUG,
                           giveup_log_level=logging.DEBUG)
