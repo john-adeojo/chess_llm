@@ -57,10 +57,9 @@ class SingleAgentLLM(MinimalEngine):
         white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
         black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
         playing_as = 'White' if board.turn == chess.WHITE else 'Black'
-        # board_state = board.fen()
         board_state = get_lichess_pgn(lichess_id)
         logging.info(board_state)
-        model = 'claude-3-5-sonnet-20240620'
+        model = 'gpt-4o'
         master1_system_prompt = chess_engine_prompt.format(playing_as=playing_as, 
                                                         board_state=board_state, 
                                                         white_moves=white_moves, 
