@@ -21,8 +21,6 @@ load_config(config_path)
 
 def get_llm_response_openai(json_mode, system_prompt, model='gpt-4o', temperature=0):
 
-    # load_config(config_path)
-
     model_endpoint = 'https://api.openai.com/v1/chat/completions'
     api_key = os.getenv('OPENAI_API_KEY')
     headers = {
@@ -64,8 +62,6 @@ def get_llm_response_openai(json_mode, system_prompt, model='gpt-4o', temperatur
 
 def get_llm_response_groq(json_mode, system_prompt, model=None, temperature=0):
 
-    # load_config(config_path)
-
     model_endpoint = 'https://api.groq.com/openai/v1/chat/completions'
     api_key = os.getenv('GROQ_API_KEY')
     headers = {
@@ -89,7 +85,7 @@ def get_llm_response_groq(json_mode, system_prompt, model=None, temperature=0):
     if json_mode == False:
         payload.pop('response_format')
 
-    time.sleep(1)    
+    time.sleep(3)    
     response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
     logging.debug(response_dict.json())
     response_json = response_dict.json()
@@ -101,3 +97,42 @@ def get_llm_response_groq(json_mode, system_prompt, model=None, temperature=0):
         response = json.loads(response_json['choices'][0]['message']['content'])
 
     return response 
+
+
+
+def get_llm_response_claude(json_mode, system_prompt, model=None, temperature=0):
+
+    model_endpoint = 'https://api.anthropic.com/v1/messages'
+    api_key = os.getenv('CLAUD_API_KEY')
+    headers = {
+        'Content-Type': 'application/json',
+        'x-api-key': api_key,
+        'anthropic-version':'2023-06-01'
+    }
+
+    payload = {
+                    "model": model,
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": f"system: {system_prompt}\n\n user: Now it's your turn to play a move."
+                        },
+                    ],
+                    "temperature": temperature,
+                    "max_tokens": 2024,
+
+                }
+    
+    if json_mode:
+        payload['messages'][0]['content'] += "Return the specified JSON, do not prepend your response with anything."
+
+    response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
+    logging.debug(response_dict.json())
+    response_json = response_dict.json()
+
+    if json_mode == False:
+        response = response_json['content'][0]['text']
+    else:
+        response = json.loads(response_json['content'][0]['text'])
+
+    return response

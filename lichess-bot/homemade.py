@@ -22,7 +22,7 @@ from llm_agents.prompts import (
     aggregator_moa_template,
 )
 
-from llm_agents.llms import get_llm_response_groq, get_llm_response_openai
+from llm_agents.llms import get_llm_response_groq, get_llm_response_openai, get_llm_response_claude
 
 
 
@@ -30,6 +30,8 @@ from llm_agents.llms import get_llm_response_groq, get_llm_response_openai
 # logger.info("message") will always print "message" to the console or log file.
 # logger.debug("message") will only print "message" if verbose logging is enabled.
 logger = logging.getLogger(__name__)
+
+lichess_id = 'llmchess'
 
 
 class ExampleEngine(MinimalEngine):
@@ -56,8 +58,9 @@ class SingleAgentLLM(MinimalEngine):
         black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
         playing_as = 'White' if board.turn == chess.WHITE else 'Black'
         # board_state = board.fen()
-        board_state = get_lichess_pgn('llmchess')
+        board_state = get_lichess_pgn(lichess_id)
         logging.info(board_state)
+        model = 'claude-3-5-sonnet-20240620'
         master1_system_prompt = chess_engine_prompt.format(playing_as=playing_as, 
                                                         board_state=board_state, 
                                                         white_moves=white_moves, 
@@ -65,7 +68,7 @@ class SingleAgentLLM(MinimalEngine):
                                                         possible_moves=possible_moves
                                                         )
         
-        master1_response = get_llm_response_openai(json_mode=True, system_prompt=master1_system_prompt, temperature=0)
+        master1_response = get_llm_response_claude(json_mode=True, system_prompt=master1_system_prompt, temperature=0, model=model)
         logger.info(master1_response)
 
         move = master1_response['best_move']
@@ -83,8 +86,9 @@ class LLMMultiAgent(MinimalEngine):
         white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
         black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
         playing_as = 'White' if board.turn == chess.WHITE else 'Black'
-        board_state = get_lichess_pgn('llmchess')
-        # board_state = board.fen()
+        board_state = get_lichess_pgn(lichess_id)
+
+        model = 'gpt-4o'
         master1_system_prompt = master1_template.format(playing_as=playing_as, 
                                                         board_state=board_state, 
                                                         white_moves=white_moves, 
@@ -92,7 +96,7 @@ class LLMMultiAgent(MinimalEngine):
                                                         possible_moves=possible_moves
                                                         )
         
-        master1_response = get_llm_response_openai(json_mode=False, system_prompt=master1_system_prompt)
+        master1_response = get_llm_response_openai(json_mode=False, system_prompt=master1_system_prompt, model=model)
         logger.info(master1_response)
 
         master2_system_prompt = master2_template.format(playing_as=playing_as, 
@@ -101,7 +105,7 @@ class LLMMultiAgent(MinimalEngine):
                                                         black_moves=black_moves, 
                                                         proposed_moves=master1_response
                                                         )
-        master2_response = get_llm_response_openai(json_mode=False, system_prompt=master2_system_prompt)
+        master2_response = get_llm_response_openai(json_mode=False, system_prompt=master2_system_prompt, model=model)
         logger.info(master2_response)
 
         master3_response = master3_template.format(playing_as=playing_as,
@@ -113,7 +117,7 @@ class LLMMultiAgent(MinimalEngine):
                                                     responses=master2_response
                                                     )
         
-        master3_response = get_llm_response_openai(json_mode=True, system_prompt=master3_response)
+        master3_response = get_llm_response_openai(json_mode=True, system_prompt=master3_response, model=model)
 
         
         logger.info(master3_response)
@@ -130,7 +134,7 @@ class LLMMixtureofAgents(MinimalEngine):
         white_moves = [move for index, move in enumerate(move_history) if index % 2 == 0]
         black_moves = [move for index, move in enumerate(move_history) if index % 2 == 1]
         playing_as = 'White' if board.turn == chess.WHITE else 'Black'
-        board_state = board.fen()
+        board_state = get_lichess_pgn(lichess_id)
         proposer_layer1_prompt = master1_template.format(playing_as=playing_as, 
                                                         board_state=board_state, 
                                                         white_moves=white_moves, 
@@ -139,10 +143,10 @@ class LLMMixtureofAgents(MinimalEngine):
                                        )
         
         
-        model = 'llama3-70b-8192'
-        proposer_1_1 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
-        proposer_1_2 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
-        proposer_1_3 = get_llm_response_groq(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+        model = 'gpt-4o'
+        proposer_1_1 = get_llm_response_openai(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+        proposer_1_2 = get_llm_response_openai(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
+        proposer_1_3 = get_llm_response_openai(json_mode=False, system_prompt=proposer_layer1_prompt, model=model, temperature=0.5)
 
         proposer_2_1_prompt = proposer_moa_layer_n_template.format(playing_as=playing_as, 
                                                         board_state=board_state, 
@@ -166,9 +170,9 @@ class LLMMixtureofAgents(MinimalEngine):
                                                         previous_responses=proposer_1_3
                                                         )
         
-        proposer_2_1 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_1_prompt, model=model, temperature=0.5)
-        proposer_2_2 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_2_prompt, model=model, temperature=0.5)
-        proposer_2_3 = get_llm_response_groq(json_mode=False, system_prompt=proposer_2_3_prompt, model=model, temperature=0.5)
+        proposer_2_1 = get_llm_response_openai(json_mode=False, system_prompt=proposer_2_1_prompt, model=model, temperature=0.5)
+        proposer_2_2 = get_llm_response_openai(json_mode=False, system_prompt=proposer_2_2_prompt, model=model, temperature=0.5)
+        proposer_2_3 = get_llm_response_openai(json_mode=False, system_prompt=proposer_2_3_prompt, model=model, temperature=0.5)
 
 
         final_layers_concatenated_responses = proposer_2_1 + proposer_2_2 + proposer_2_3
@@ -181,7 +185,8 @@ class LLMMixtureofAgents(MinimalEngine):
                                                         previous_responses=final_layers_concatenated_responses
                                                         )
         
-        aggregator_response = get_llm_response_openai(json_mode=True, system_prompt=aggregator_prompt)
+        model = 'claude-3-5-sonnet-20240620'
+        aggregator_response = get_llm_response_claude(json_mode=True, system_prompt=aggregator_prompt, model=model)
         
 
         # master2_response = get_llm_response(json_mode=True, system_prompt=master2_system_prompt)
