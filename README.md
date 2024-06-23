@@ -68,12 +68,7 @@ In your PowerShell, ensure your current working directory is `lichess-bot`. Then
 python lichess-bot.py -u
 ```
 
-### 6. Configure the Bot
-
-1. Within your IDE, navigate to the `homemade.py` script.
-2. At the top of the script, place your own Lichess ID (your Lichess username in lowercase).
-
-### 7. Run your Bot
+### 6. Run your Bot
 
 You can run your Lichess bot by running:
 ```sh

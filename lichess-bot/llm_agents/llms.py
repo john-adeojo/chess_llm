@@ -3,7 +3,9 @@ import json
 import requests
 import yaml
 import logging
-import time 
+import time
+import re
+import ast
 
 # config_path = './api_keys.yaml'
 
@@ -49,7 +51,7 @@ def get_llm_response_openai(json_mode, system_prompt, model='gpt-4o', temperatur
         payload.pop('response_format')
         
     response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
-    logging.debug(response_dict.json())
+    # logging.debug(response_dict.json())
     response_json = response_dict.json()
 
     if json_mode == False:
@@ -85,9 +87,10 @@ def get_llm_response_groq(json_mode, system_prompt, model=None, temperature=0):
     if json_mode == False:
         payload.pop('response_format')
 
-    time.sleep(3)    
+    # To avoid rate limit errors on the GROQ API
+    time.sleep(5)    
     response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
-    logging.debug(response_dict.json())
+    # logging.debug(response_dict.json())
     response_json = response_dict.json()
 
     if json_mode == False:
@@ -133,6 +136,7 @@ def get_llm_response_claude(json_mode, system_prompt, model=None, temperature=0)
     if json_mode == False:
         response = response_json['content'][0]['text']
     else:
-        response = json.loads(response_json['content'][0]['text'])
+        response = response_json['content'][0]['text']
+        response = json.loads(response)
 
     return response

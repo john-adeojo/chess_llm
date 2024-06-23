@@ -585,6 +585,12 @@ def handle_challenge(event: EventType, li: LICHESS_TYPE, challenge_queue: MULTIP
         li.decline_challenge(chlng.id, reason=decline_reason)
 
 
+# Added by John Adeojo: We save the game state json to the root-dir so we can retrieve in homemade.py
+def save_game_state_local(game_state):
+    with open("game_state.json", "w") as file:
+        json.dump(game_state, file)
+
+
 @backoff.on_exception(backoff.expo, BaseException, max_time=600, giveup=lichess.is_final,  # type: ignore[arg-type]
                       on_backoff=lichess.backoff_handler)
 def play_game(li: LICHESS_TYPE,
@@ -618,6 +624,9 @@ def play_game(li: LICHESS_TYPE,
     logger.debug(f"Initial state: {initial_state}")
     abort_time = seconds(config.abort_time)
     game = model.Game(initial_state, user_profile["username"], li.baseUrl, abort_time)
+
+    # Added by JA: We save the initial game state
+    save_game_state_local(game.state)
 
     with engine_wrapper.create_engine(config, game) as engine:
         engine.get_opponent_info(game)
@@ -662,6 +671,10 @@ def play_game(li: LICHESS_TYPE,
                 elif u_type == "gameState":
                     game.state = upd
                     board = setup_board(game)
+
+                    # Added by John Adeojo: We save the updated game state (overwrites game state file)
+                    save_game_state_local(game.state)
+
                     takeback_field = game.state.get("btakeback") if game.is_white else game.state.get("wtakeback")
 
                     if not is_game_over(game) and is_engine_move(game, prior_game, board):

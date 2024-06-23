@@ -27,7 +27,9 @@ chess_engine_prompt = """
 
             Your response should include the best move and a detailed rationale.
             respond in the following JSON format:
-            "best_move": "best move in UCI format"      
+
+            {{"rationale": "Detailed explantion of why this move is the best. This should be JSON pasrable text. Newlines should be escaped with double back slash followed by n.",
+            "best_move": "best move in UCI format"}}      
 
         """
 
@@ -83,7 +85,7 @@ master2_template = """
             Consider how these counter-moves may affect the state of the board a few moves ahead.
             Additionally, think about possible counters to your opponent's responses and how you would handle them.
 
-            You should return the opponent's moves in UCI format. For example, if you propose to move a pawn from e2 to e4, you should return e2e4.
+            You should return the moves in UCI format. For example, if you propose to move a pawn from e2 to e4, you should return e2e4.
 
             Your response should include the plausible responses for each proposed move and your counters to those responses.
         """
@@ -115,7 +117,8 @@ master3_template = """
 
             You must return the best move as a JSON in UCI format like so:
             
-            "best_move": "best move in UCI format"      
+            {{"rationale": "Detailed explantion of why this move is the best. This should be JSON pasrable text. Newlines should be escaped with double back slash followed by n.",
+            "best_move": "best move in UCI format"}}     
 
 """
 
@@ -172,7 +175,7 @@ aggregator_moa_template = """
 
     Provide your selected best move in the following JSON format:
     
-        "best_move": "uci_move",
-        "rationale": "reason for choosing this move"
-    
+    {{"rationale": "Detailed explantion of why this move is the best. This should be JSON pasrable text. Newlines should be escaped with double back slash followed by n.",
+     "best_move": "best move in UCI format"}}     
+
 """

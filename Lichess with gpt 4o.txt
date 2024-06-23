@@ -1,0 +1,1429 @@
+(chess_env) PS G:\My Drive\Data-Centric Solutions\07. Digital Content\Lichess LLM\code\chess_llm\lichess-bot> python lichess-bot.py
+[06/23/24 16:39:42] INFO                                                   lichess-bot.py:1156
+                                 .   _/|
+                                 .  // o\
+                                 .  || ._)  lichess-bot 2024.6.21.3 on
+                             Windows 10
+                                 .  //__\
+                                 .  )___(   Play on Lichess with a bot
+
+                    INFO     Checking engine configuration ...             lichess-bot.py:1159
+                    INFO     Engine configuration OK                       lichess-bot.py:1162
+[06/23/24 16:39:43] INFO     Welcome LLMChess!                             lichess-bot.py:1172
+                    INFO     You're now connected to https://lichess.org/   lichess-bot.py:238
+                             and awaiting challenges.
+[06/23/24 16:41:26] INFO     --- Process Used. Count: 1. IDs: {'ouQfhd1j'}  lichess-bot.py:287
+                    INFO     +++ https://lichess.org/ouQfhd1j/white         lichess-bot.py:636
+                             Correspondence vs AI level 5 (ouQfhd1j)
+[06/23/24 16:41:27] INFO     *** https://lichess.org/ouQfhd1j/white        conversation.py:100
+                             [player] LLMChess: Hi! I'm LLMChess. Good
+                             luck! Type !help for a list of commands I can
+                             respond to.
+                    INFO     *** https://lichess.org/ouQfhd1j/white        conversation.py:100
+                             [spectator] LLMChess: Hi! I'm LLMChess. Type
+                             !help for a list of commands I can respond
+                             to.
+                    INFO                                                    lichess-bot.py:796
+                    INFO     move: 1                                        lichess-bot.py:797
+                    INFO     Searching for time 10 seconds for game      engine_wrapper.py:705
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('g1h3'),            homemade.py:78
+                              Move.from_uci('g1f3'),
+                              Move.from_uci('b1c3'),
+                              Move.from_uci('b1a3'),
+                              Move.from_uci('h2h3'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('e2e3'),
+                              Move.from_uci('d2d3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('h2h4'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('e2e4'),
+                              Move.from_uci('d2d4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': '',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:41:33] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is e2e4. This move accomplishes
+                             several important objectives: \\\\n1. Control of
+                             the center: By advancing the pawn to e4, White
+                             takes control of the central squares d5 and f5,
+                             which is crucial for gaining spatial advantage and
+                             restricting Black's options. \\\\n2. Piece
+                             development: The move e2e4 opens up lines for the
+                             bishop on f1 and the queen on d1, facilitating
+                             their development in future moves. \\\\n3. King
+                             safety: By controlling the center, White can more
+                             easily prepare for castling, which is important
+                             for ensuring the safety of the king. \\\\n4.
+                             Potential threats: The move e2e4 also prepares for
+                             potential tactical opportunities, such as
+                             advancing the pawn to e5 to attack Black's pieces
+                             or creating threats along the e-file. \\\\n5.
+                             Long-term strategic plans: This move aligns with
+                             common opening principles and sets the stage for a
+                             solid and flexible opening repertoire. \\\\nIn
+                             response to e2e4, Black has several options, such
+                             as e7e5, c7c5, or e7e6. Depending on Black's
+                             response, White can continue with moves like Nf3,
+                             Nc3, or d4 to maintain control of the center and
+                             develop pieces harmoniously.", 'best_move':
+                             'e2e4'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:41:34] INFO     *** https://lichess.org/ouQfhd1j/white         conversation.py:58
+                             [player] LLMChess: Hi! I'm LLMChess. Good
+                             luck! Type !help for a list of commands I can
+                             respond to.
+                    INFO     *** https://lichess.org/ouQfhd1j/white         conversation.py:58
+                             [spectator] LLMChess: Hi! I'm LLMChess. Type
+                             !help for a list of commands I can respond to.
+[06/23/24 16:41:36] INFO                                                    lichess-bot.py:796
+                    INFO     move: 2                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('g1h3'),            homemade.py:78
+                              Move.from_uci('g1f3'),
+                              Move.from_uci('g1e2'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('d1h5'),
+                              Move.from_uci('d1g4'),
+                              Move.from_uci('d1f3'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('b1c3'),
+                              Move.from_uci('b1a3'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h2h3'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('d2d3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('h2h4'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('d2d4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:41:39] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': 'The best move in
+                             this position is Nf3 (g1f3). This move develops a
+                             knight to a natural square, helps control the
+                             center (specifically the e5 and d4 squares), and
+                             prepares for kingside castling, which will enhance
+                             king safety. Additionally, it opens up lines for
+                             the bishop on f1 to be developed.\\n\\nIf Black
+                             responds with a move like Nf6, White can continue
+                             with Nc3, further developing pieces and
+                             maintaining control of the center. If Black plays
+                             a move like e5, White can respond with d4,
+                             challenging the center and opening up the position
+                             for further development. Overall, Nf3 is a solid
+                             and flexible move that adheres to fundamental
+                             opening principles.', 'best_move': 'g1f3'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:41:41] INFO                                                    lichess-bot.py:796
+                    INFO     move: 3                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('b1c3'),
+                              Move.from_uci('b1a3'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h2h3'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('d2d3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('h2h4'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('d2d4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:41:43] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': 'The best move in
+                             this position is to develop another piece and
+                             control the center. Moving the knight to c3 (b1c3)
+                             achieves both of these goals. This move develops
+                             the knight to a natural square, supports the e4
+                             pawn, and prepares for potential central control
+                             with d4 in the future. Additionally, it keeps the
+                             option of castling kingside open, ensuring king
+                             safety.\\n\\nPotential counters from Black could
+                             include moves like ...e5, trying to challenge the
+                             center, or ...c6, preparing for ...d5. If Black
+                             plays ...e5, White can respond with d4,
+                             maintaining strong central control. If Black plays
+                             ...c6, White can continue development with moves
+                             like d4 or Be2, preparing to castle and solidify
+                             the position.', 'best_move': 'b1c3'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:41:45] INFO                                                    lichess-bot.py:796
+                    INFO     move: 4                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('c3d5'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h2h3'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('d2d3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('h2h4'),
+                              Move.from_uci('d2d4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:41:49] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play h2h3. This move serves
+                             multiple purposes:\\n1. It challenges the bishop
+                             on g4, which is currently pinning the knight on
+                             f3. This pin can be quite annoying and can hinder
+                             White's development.\\n2. By forcing the bishop to
+                             either retreat or exchange itself for the knight,
+                             White can gain a tempo and improve the position of
+                             their pieces.\\n3. If Black decides to exchange
+                             the bishop for the knight, White can recapture
+                             with the queen, which will be well-placed on
+                             f3.\\n4. This move also opens up the possibility
+                             of castling kingside in the future, ensuring the
+                             safety of the White king.\\n5. It avoids any
+                             immediate tactical threats and keeps the position
+                             solid while maintaining control of the
+                             center.\\nOverall, h2h3 is a flexible and
+                             multi-purpose move that improves White's position
+                             without creating any weaknesses.", 'best_move':
+                             'h2h3'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:41:51] INFO                                                    lichess-bot.py:796
+                    INFO     move: 5                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('c3d5'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('d2d3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('d2d4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3
+                             g4h5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:41:55] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play d2d4. This move aims to
+                             control the center, which is a fundamental
+                             principle in chess. By advancing the d-pawn, White
+                             opens up lines for the development of the c1
+                             bishop and the queen. Additionally, it challenges
+                             Black's pawn on e5 and prepares to establish a
+                             strong pawn center.\\n\\nIf Black responds with
+                             e5, White can capture with dxe5, and if Black
+                             recaptures with dxe5, White can develop the knight
+                             to f3, attacking the e5 pawn. This sequence helps
+                             White gain a tempo and further control the
+                             center.\\n\\nOther possible responses from Black
+                             include c6, aiming to support the d5 square, or
+                             g6, preparing to fianchetto the bishop. In either
+                             case, White can continue with natural development
+                             moves like Bf4 or Be3, maintaining a strong
+                             position.", 'best_move': 'd2d4'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:41:58] INFO                                                    lichess-bot.py:796
+                    INFO     move: 6                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3d2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('c3d5'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('d1d3'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('d1d2'),
+                              Move.from_uci('c1h6'),
+                              Move.from_uci('c1g5'),
+                              Move.from_uci('c1f4'),
+                              Move.from_uci('c1e3'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('d4d5'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:09] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play d4d5. This move
+                             accomplishes several important objectives:\\n1.
+                             **Control of the Center**: By advancing the pawn
+                             to d5, White gains more control over the center of
+                             the board. This is crucial for both short-term
+                             tactics and long-term strategy.\\n2. **Piece
+                             Development and Positioning**: The move d5 opens
+                             up lines for White's pieces, particularly the
+                             light-squared bishop on c1 and the queen on d1.
+                             This can lead to more active piece play.\\n3.
+                             **King Safety**: The move does not compromise the
+                             safety of White's king. In fact, it can help in
+                             the future by opening lines for the pieces to be
+                             developed and the king to be castled.\\n4.
+                             **Potential Threats and Tactical Opportunities**:
+                             The move d5 puts immediate pressure on Black's
+                             knight on f6 and the pawn on e6. If Black captures
+                             the pawn with exd5, White can recapture with the
+                             knight, gaining a strong central position.\\n5.
+                             **Long-term Strategic Plans**: This move aligns
+                             with the long-term plan of controlling the center
+                             and preparing for a kingside attack.\\n6.
+                             **Avoiding Blunders and Common Mistakes**: The
+                             move d5 is solid and does not create any immediate
+                             weaknesses in White's position. It is a principled
+                             move that adheres to classical opening
+                             principles.\\n\\nPotential counters from Black
+                             could include exd5, which can be met with Nxd5,
+                             maintaining a strong central presence. Another
+                             possible response is g6, preparing to fianchetto
+                             the bishop, but this would be slower and allow
+                             White to continue developing pieces actively.",
+                             'best_move': 'd4d5'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:42:14] INFO                                                    lichess-bot.py:796
+                    INFO     move: 7                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3d2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('d1d4'),
+                              Move.from_uci('d1d3'),
+                              Move.from_uci('d1e2'),
+                              Move.from_uci('d1d2'),
+                              Move.from_uci('c1h6'),
+                              Move.from_uci('c1g5'),
+                              Move.from_uci('c1f4'),
+                              Move.from_uci('c1e3'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:17] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play d1d4. This move develops
+                             the queen to an active square, supports the d5
+                             pawn, and exerts pressure on the center. It also
+                             prepares for potential future moves like Bf1-e2 or
+                             Bf1-d3, which will help in completing development
+                             and preparing for castling. Additionally, the
+                             queen on d4 can potentially target the g7 pawn,
+                             creating tactical opportunities.\\n\\nIf Black
+                             responds with a move like ...e5, White can
+                             consider capturing with dxe6, opening up the
+                             center and creating weaknesses in Black's pawn
+                             structure. If Black plays ...c5, White can respond
+                             with dxc6, again creating weaknesses in Black's
+                             position. Overall, d1d4 is a strong move that
+                             improves White's position and creates multiple
+                             threats.", 'best_move': 'd1d4'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:42:21] INFO                                                    lichess-bot.py:796
+                    INFO     move: 8                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('d4a7'),            homemade.py:78
+                              Move.from_uci('d4f6'),
+                              Move.from_uci('d4b6'),
+                              Move.from_uci('d4e5'),
+                              Move.from_uci('d4c5'),
+                              Move.from_uci('d4c4'),
+                              Move.from_uci('d4b4'),
+                              Move.from_uci('d4a4'),
+                              Move.from_uci('d4e3'),
+                              Move.from_uci('d4d3'),
+                              Move.from_uci('d4d2'),
+                              Move.from_uci('d4d1'),
+                              Move.from_uci('f3g5'),
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3d2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1h6'),
+                              Move.from_uci('c1g5'),
+                              Move.from_uci('c1f4'),
+                              Move.from_uci('c1e3'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:24] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is d4e3. This move achieves several
+                             objectives:\\n1. It develops the queen to a more
+                             active square, maintaining control over the center
+                             and eyeing the e5 square.\\n2. It prepares for
+                             potential castling on the kingside, which will
+                             improve king safety.\\n3. It keeps the pressure on
+                             Black's position, especially targeting the weak d6
+                             pawn.\\n4. It avoids any immediate tactical
+                             threats and maintains a solid
+                             position.\\n\\nPotential counters from Black could
+                             include moves like g6 or e5. If Black plays g6, we
+                             can continue with Be2, preparing to castle. If
+                             Black plays e5, we can respond with dxe6, opening
+                             up the position and maintaining our central
+                             control.", 'best_move': 'd4e3'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:42:28] INFO                                                    lichess-bot.py:796
+                    INFO     move: 9                                        lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3d2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('e3a7'),
+                              Move.from_uci('e3h6'),
+                              Move.from_uci('e3b6'),
+                              Move.from_uci('e3g5'),
+                              Move.from_uci('e3c5'),
+                              Move.from_uci('e3f4'),
+                              Move.from_uci('e3d4'),
+                              Move.from_uci('e3d3'),
+                              Move.from_uci('e3e2'),
+                              Move.from_uci('e3d2'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e4e5'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:31] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is e4e5. This move has several
+                             advantages:\\n1. It attacks the knight on f6,
+                             forcing it to move and potentially disrupting
+                             Black's coordination.\\n2. It opens up the e4
+                             square for the knight on f3, which can then move
+                             to e4 and exert more control over the center.\\n3.
+                             It creates a potential outpost for the knight on
+                             d5, which can be very strong.\\n4. It keeps the
+                             initiative and puts pressure on Black to respond
+                             accurately.\\nIf Black responds with dxe5, White
+                             can recapture with the knight (Nxe5), maintaining
+                             a strong central presence. If Black moves the
+                             knight to d7 (Nfd7), White can continue with e6,
+                             further disrupting Black's pawn structure and
+                             opening lines for an attack. Overall, e4e5 is a
+                             move that keeps the pressure on Black and improves
+                             White's position.", 'best_move': 'e4e5'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:42:37] INFO                                                    lichess-bot.py:796
+                    INFO     move: 10                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f3g5'),            homemade.py:78
+                              Move.from_uci('f3e5'),
+                              Move.from_uci('f3h4'),
+                              Move.from_uci('f3d4'),
+                              Move.from_uci('f3h2'),
+                              Move.from_uci('f3d2'),
+                              Move.from_uci('f3g1'),
+                              Move.from_uci('e3a7'),
+                              Move.from_uci('e3h6'),
+                              Move.from_uci('e3b6'),
+                              Move.from_uci('e3g5'),
+                              Move.from_uci('e3e5'),
+                              Move.from_uci('e3c5'),
+                              Move.from_uci('e3f4'),
+                              Move.from_uci('e3e4'),
+                              Move.from_uci('e3d4'),
+                              Move.from_uci('e3d3'),
+                              Move.from_uci('e3e2'),
+                              Move.from_uci('e3d2'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:39] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play Nxe5 (f3e5). This move
+                             captures the knight on e5, which is currently
+                             undefended. By doing so, we gain material
+                             advantage and maintain control of the center.
+                             Additionally, this move opens up the possibility
+                             of attacking the black queen on c8, which is
+                             currently in a vulnerable position.\\n\\nIf Black
+                             responds with dxe5, we can continue with Qxe5+,
+                             putting the black king in check and forcing it to
+                             move or block. This sequence of moves will further
+                             disrupt Black's position and give us a strong
+                             initiative.\\n\\nOverall, Nxe5 is a strong
+                             tactical move that capitalizes on Black's
+                             weaknesses and improves our position
+                             significantly.", 'best_move': 'f3e5'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:42:44] INFO                                                    lichess-bot.py:796
+                    INFO     move: 11                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('e3a7'),            homemade.py:78
+                              Move.from_uci('e3h6'),
+                              Move.from_uci('e3b6'),
+                              Move.from_uci('e3g5'),
+                              Move.from_uci('e3e5'),
+                              Move.from_uci('e3c5'),
+                              Move.from_uci('e3f4'),
+                              Move.from_uci('e3e4'),
+                              Move.from_uci('e3d4'),
+                              Move.from_uci('e3g3'),
+                              Move.from_uci('e3f3'),
+                              Move.from_uci('e3d3'),
+                              Move.from_uci('e3e2'),
+                              Move.from_uci('e3d2'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('d5d6'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:42:58] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is e3e5. This move accomplishes
+                             several important objectives:\\n1. It centralizes
+                             the queen, putting pressure on Black's
+                             position.\\n2. It attacks the knight on f6,
+                             forcing Black to respond.\\n3. It opens up the
+                             possibility of White castling kingside in the
+                             future, improving king safety.\\n4. It maintains
+                             control of the center, which is crucial for
+                             long-term strategic plans.\\n\\nPotential counters
+                             from Black include moving the knight to d7 or
+                             capturing the queen with the knight. If Black
+                             moves the knight to d7, White can continue to
+                             develop pieces and maintain pressure. If Black
+                             captures the queen with the knight, White can
+                             recapture with the knight on e5, maintaining a
+                             strong central presence and piece activity.",
+                             'best_move': 'e3e5'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:04] INFO                                                    lichess-bot.py:796
+                    INFO     move: 12                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('e5g7'),            homemade.py:78
+                              Move.from_uci('e5e7'),
+                              Move.from_uci('e5c7'),
+                              Move.from_uci('e5f6'),
+                              Move.from_uci('e5e6'),
+                              Move.from_uci('e5d6'),
+                              Move.from_uci('e5h5'),
+                              Move.from_uci('e5g5'),
+                              Move.from_uci('e5f5'),
+                              Move.from_uci('e5f4'),
+                              Move.from_uci('e5e4'),
+                              Move.from_uci('e5d4'),
+                              Move.from_uci('e5g3'),
+                              Move.from_uci('e5e3'),
+                              Move.from_uci('e5h2'),
+                              Move.from_uci('e5e2'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1h6'),
+                              Move.from_uci('c1g5'),
+                              Move.from_uci('c1f4'),
+                              Move.from_uci('c1e3'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('d5d6'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:06] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': 'The best move in
+                             this position is e5e7. This move places the knight
+                             on a strong square, attacking the black queen on
+                             c8 and the rook on f8. This forces Black to
+                             respond to the immediate threat, giving White a
+                             significant tactical advantage. If Black moves the
+                             queen to a safe square, White can capture the rook
+                             on f8, gaining material. Additionally, this move
+                             keeps the pressure on Black and maintains control
+                             of the center.\\n\\nPotential counters and
+                             responses:\\n1. If Black plays Qd8, White can
+                             capture the rook with Nxf8, winning material.\\n2.
+                             If Black plays Qb8, White can still capture the
+                             rook with Nxf8.\\n3. If Black plays Qc7, White can
+                             capture the rook with Nxf8.\\n\\nIn all these
+                             scenarios, White gains material and maintains a
+                             strong position.', 'best_move': 'e5e7'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:11] INFO                                                    lichess-bot.py:796
+                    INFO     move: 13                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('c3b5'),            homemade.py:78
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('c1h6'),
+                              Move.from_uci('c1g5'),
+                              Move.from_uci('c1f4'),
+                              Move.from_uci('c1e3'),
+                              Move.from_uci('c1d2'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('d5d6'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:15] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is c1f4. This move develops the
+                             bishop to an active square, targeting the weak d6
+                             pawn and putting pressure on Black's position. It
+                             also prepares for potential castling on the
+                             kingside, which would improve White's king safety.
+                             Additionally, the bishop on f4 can support future
+                             central or kingside operations.\\n\\nIf Black
+                             responds with a move like g5 to attack the bishop,
+                             White can retreat the bishop to g3, maintaining
+                             pressure on the d6 pawn and keeping the bishop on
+                             an active diagonal. If Black tries to defend the
+                             d6 pawn with a move like f6, White can continue to
+                             develop pieces and prepare for a central
+                             breakthrough. Overall, c1f4 is a strong move that
+                             improves White's position and creates multiple
+                             threats for Black to deal with.", 'best_move':
+                             'c1f4'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:18] INFO                                                    lichess-bot.py:796
+                    INFO     move: 14                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('f4c7'),            homemade.py:78
+                              Move.from_uci('f4h6'),
+                              Move.from_uci('f4d6'),
+                              Move.from_uci('f4g5'),
+                              Move.from_uci('f4e5'),
+                              Move.from_uci('f4g3'),
+                              Move.from_uci('f4e3'),
+                              Move.from_uci('f4h2'),
+                              Move.from_uci('f4d2'),
+                              Move.from_uci('f4c1'),
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('a1d1'),
+                              Move.from_uci('a1c1'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e1c1'),
+                              Move.from_uci('d5d6'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:22] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is f4c7. This move places the bishop
+                             on a very active square, attacking the black queen
+                             on c8 and the rook on a8 simultaneously. This
+                             creates a powerful double attack, forcing Black to
+                             respond to the immediate threat. If Black moves
+                             the queen to a safe square, White can capture the
+                             rook on a8, gaining material advantage.
+                             Additionally, this move keeps the pressure on
+                             Black and maintains White's
+                             initiative.\\n\\nPotential counters and
+                             responses:\\n1. If Black plays Qxc7, White can
+                             respond with Nxc7, winning the exchange.\\n2. If
+                             Black moves the queen to a square like d7 or e6,
+                             White can capture the rook on a8 with Bxa8,
+                             gaining material.\\n3. If Black tries to defend
+                             the rook with a move like Rc8, White can still
+                             capture the rook with Bxa8, and after Rxa8, White
+                             can play Qxc5, winning a pawn and maintaining a
+                             strong position.\\n\\nOverall, f4c7 is a strong
+                             tactical move that puts immediate pressure on
+                             Black and can lead to a significant material
+                             advantage for White.", 'best_move': 'f4c7'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:25] INFO                                                    lichess-bot.py:796
+                    INFO     move: 15                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('c3b5'),            homemade.py:78
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('a1d1'),
+                              Move.from_uci('a1c1'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('e1c1'),
+                              Move.from_uci('d5d6'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:28] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play d5d6. This move has
+                             several advantages:\\n1. It advances the pawn to a
+                             strong position, putting pressure on Black's
+                             position and potentially opening lines for White's
+                             pieces.\\n2. It restricts Black's pieces,
+                             particularly the knight on c5 and the bishop on
+                             g6, limiting their mobility.\\n3. It creates a
+                             passed pawn, which can be a significant endgame
+                             advantage.\\n4. It forces Black to respond,
+                             potentially leading to weaknesses in their
+                             position.\\nIf Black captures the pawn with c5xd6,
+                             White can respond with Rd1, increasing pressure on
+                             the d6 pawn and potentially winning it back. If
+                             Black tries to ignore the pawn, White can continue
+                             to push it forward, creating further threats.
+                             Overall, d5d6 is a strong, proactive move that
+                             improves White's position and creates multiple
+                             tactical and strategic opportunities.",
+                             'best_move': 'd5d6'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:32] INFO                                                    lichess-bot.py:796
+                    INFO     move: 16                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('c3d5'),            homemade.py:78
+                              Move.from_uci('c3b5'),
+                              Move.from_uci('c3e4'),
+                              Move.from_uci('c3a4'),
+                              Move.from_uci('c3e2'),
+                              Move.from_uci('c3d1'),
+                              Move.from_uci('c3b1'),
+                              Move.from_uci('h1h2'),
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('a1d1'),
+                              Move.from_uci('a1c1'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7 d5d6 c7d6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:34] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is c3d5. This move places the knight
+                             on a strong central square, attacking Black's
+                             queen on d6 and the bishop on e7. This move also
+                             increases White's control over the center and
+                             opens up potential tactical opportunities. If
+                             Black captures the knight with the bishop (Bxd5),
+                             White can recapture with the pawn (exd5), opening
+                             up the e-file for the rook and maintaining a
+                             strong central presence. If Black moves the queen
+                             to avoid capture, White can continue to develop
+                             pieces and increase pressure on Black's position.
+                             This move also avoids any immediate threats and
+                             keeps the king safe.", 'best_move': 'c3d5'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:37] INFO                                                    lichess-bot.py:796
+                    INFO     move: 17                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('h1h2'),            homemade.py:78
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('f1a6'),
+                              Move.from_uci('f1b5'),
+                              Move.from_uci('f1c4'),
+                              Move.from_uci('f1d3'),
+                              Move.from_uci('f1e2'),
+                              Move.from_uci('e1e2'),
+                              Move.from_uci('a1d1'),
+                              Move.from_uci('a1c1'),
+                              Move.from_uci('a1b1'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7 d5d6 c7d6 c3d5 d6d5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:40] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play a1d1. This move places
+                             the rook on an open file, which is a fundamental
+                             principle in chess. By doing so, we increase the
+                             rook's activity and control over the d-file. This
+                             move also indirectly supports the d5 pawn, which
+                             is currently under attack by Black's knight on
+                             c5.\\n\\nIf Black responds with a move like c5e6,
+                             attacking our d4 pawn, we can simply play d1d7,
+                             putting pressure on Black's position and
+                             potentially winning material. If Black tries to
+                             exchange rooks with d8d8, we can capture with our
+                             rook, maintaining control of the open
+                             file.\\n\\nOverall, a1d1 is a move that improves
+                             our position by activating our rook and increasing
+                             our control over the board.", 'best_move': 'a1d1'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:42] INFO                                                    lichess-bot.py:796
+                    INFO     move: 18                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('e1d2'),            homemade.py:78
+                             Move.from_uci('f1e2')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7 d5d6 c7d6 c3d5 d6d5 a1d1
+                             d5e5',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:46] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': 'Given the current
+                             position, the best move is to develop the bishop
+                             to e2. This move serves several purposes:\\n1. It
+                             develops a piece, which is generally a good idea
+                             in the opening and middlegame.\\n2. It prepares
+                             for castling kingside, which will improve the
+                             safety of the White king.\\n3. It connects the
+                             rooks, which can be useful for future coordination
+                             and control of open files.\\n4. It does not create
+                             any immediate weaknesses or tactical opportunities
+                             for Black to exploit.\\n\\nThe alternative move,
+                             e1d2, would place the king in a less safe position
+                             and block the development of the bishop on f1.
+                             Therefore, f1e2 is the superior
+                             move.\\n\\nPotential counters from Black could
+                             include developing their pieces or trying to
+                             create threats, but White will be well-prepared to
+                             respond with castling and further development.',
+                             'best_move': 'f1e2'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:49] INFO                                                    lichess-bot.py:796
+                    INFO     move: 19                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('h1h2'),            homemade.py:78
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('h1f1'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1f1'),
+                              Move.from_uci('d1d8'),
+                              Move.from_uci('d1d7'),
+                              Move.from_uci('d1d6'),
+                              Move.from_uci('d1d5'),
+                              Move.from_uci('d1d4'),
+                              Move.from_uci('d1d3'),
+                              Move.from_uci('d1d2'),
+                              Move.from_uci('d1c1'),
+                              Move.from_uci('d1b1'),
+                              Move.from_uci('d1a1'),
+                              Move.from_uci('e1g1'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+                    INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7 d5d6 c7d6 c3d5 d6d5 a1d1 d5e5
+                             f1e2 f7f6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:51] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "The best move in
+                             this position is to play d1d6. This move places
+                             the queen on a very active square, attacking the
+                             black bishop on e6 and putting pressure on the
+                             black king. It also threatens to capture the pawn
+                             on c6, which would further weaken Black's
+                             position.\\n\\nIf Black responds with e5xd6, White
+                             can recapture with the bishop on e2, maintaining a
+                             strong central presence and keeping the black king
+                             in a vulnerable position. If Black tries to defend
+                             the bishop with a move like Ke7, White can
+                             continue to build pressure with moves like f4,
+                             opening up lines for an attack.\\n\\nOverall, d1d6
+                             is a strong move that increases White's activity
+                             and puts Black on the defensive.", 'best_move':
+                             'd1d6'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
+[06/23/24 16:43:54] INFO                                                    lichess-bot.py:796
+                    INFO     move: 20                                       lichess-bot.py:797
+                    INFO     Searching for time 60 seconds for game      engine_wrapper.py:692
+                             ouQfhd1j
+                    INFO     POSSIBLE MOVES: [Move.from_uci('h1h2'),            homemade.py:78
+                              Move.from_uci('h1g1'),
+                              Move.from_uci('h1f1'),
+                              Move.from_uci('e1d2'),
+                              Move.from_uci('e1f1'),
+                              Move.from_uci('e1d1'),
+                              Move.from_uci('e1g1'),
+                              Move.from_uci('h3h4'),
+                              Move.from_uci('g2g3'),
+                              Move.from_uci('f2f3'),
+                              Move.from_uci('c2c3'),
+                              Move.from_uci('b2b3'),
+                              Move.from_uci('a2a3'),
+                              Move.from_uci('g2g4'),
+                              Move.from_uci('f2f4'),
+                              Move.from_uci('c2c4'),
+                              Move.from_uci('b2b4'),
+                              Move.from_uci('a2a4')]
+[06/23/24 16:43:55] INFO                                                        homemade.py:84
+
+                             BOARD STATE ♟️: {'binc': 0,
+
+                              'btime': 2147483647,
+                              'moves': 'e2e4 d7d6 g1f3 g8f6 b1c3 c8g4 h2h3 g4h5
+                             d2d4 b8d7 d4d5 h5g6 d1d4 '
+                                       'd8c8 d4e3 h7h6 e4e5 d7e5 f3e5 d6e5 e3e5
+                             f6d7 e5e7 e8e7 c1f4 d7c5 '
+                                       'f4c7 c8c7 d5d6 c7d6 c3d5 d6d5 a1d1 d5e5
+                             f1e2 f7f6 d1d6 e7d6',
+                              'status': 'started',
+                              'type': 'gameState',
+                              'winc': 0,
+                              'wtime': 2147483647}
+[06/23/24 16:43:57] INFO                                                        homemade.py:94
+
+                              CHESS MASTER ♞: {'rationale': "Given the current
+                             position, White has a significant lead in
+                             development and control of the center. The Black
+                             king is somewhat exposed on d6, and White can
+                             capitalize on this by increasing pressure. The
+                             move h1d1 is a strong candidate as it brings the
+                             rook to an open file, directly targeting the Black
+                             king and potentially creating tactical
+                             opportunities. This move also aligns with the
+                             principle of activating all pieces and controlling
+                             open files.\\n\\nIf Black responds with a move
+                             like Ke6 to escape the pin, White can continue to
+                             apply pressure with moves like Bg4, targeting the
+                             weak e6 square. If Black tries to defend
+                             passively, White can continue to improve their
+                             position and look for tactical shots. Overall,
+                             h1d1 is a move that increases White's activity and
+                             puts immediate pressure on Black's position.",
+                             'best_move': 'h1d1'}
+                    INFO     Source: Engine                              engine_wrapper.py:330
