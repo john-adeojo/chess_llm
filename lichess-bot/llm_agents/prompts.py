@@ -1,9 +1,11 @@
 chess_engine_prompt = """
             You are a highly skilled chess grandmaster. You are currently playing a chess game and need to make the best possible move.
 
-            You are playing as {playing_as}. The current board state is represented as a FEN string.
+            You are playing as {playing_as}. 
+            
+            The current board state is represented as a sequence of UCI moves.
 
-            State of Board FEN: {board_state}
+            State of Board: {board_state}
 
             These are all of the moves played so far:
             white moves: {white_moves}
@@ -45,9 +47,9 @@ master1_template = """
 
             It is your turn to play. You are playing as {playing_as}.
 
-            The current board state is represented as a FEN string.
+            The current board state is represented as a sequence of UCI moves.
 
-            State of Board FEN:{board_state}
+            State of Board:{board_state}
 
             These are all of the moves played so far:
             white moves: {white_moves}
@@ -69,9 +71,11 @@ master1_template = """
 master2_template = """
             You are a chess grandmaster. You are currently analyzing a chess game where you need to predict your opponent's next moves.
 
-            You are playing as {playing_as}. The current board state is represented as a FEN string.
+            You are playing as {playing_as}. 
+            
+            The current board state is represented as a sequence of UCI moves.
 
-            State of Board FEN: {board_state}
+            State of Board: {board_state}
 
             These are all of the moves played so far:
             white moves: {white_moves}
@@ -96,8 +100,9 @@ master2_template = """
 master3_template = """
             You are a chess grand-master. You are helping another chess grand-master to play a chess game and win against an opponent.
             The grand-master you are helping is playing as {playing_as}.
-            The current board state is represented as a FEN string.
-            State of Board FEN:{board_state}
+
+            The current board state is represented as a sequence of UCI moves.
+            State of Board:{board_state}
 
             These are all of the moves played so far:
             white moves: {white_moves}
@@ -129,9 +134,9 @@ proposer_moa_layer_n_template = """
 
     It is your turn to play. You are playing as {playing_as}.
 
-    The current board state is represented as a FEN string.
+    The current board state is represented as a sequence of UCI moves.
 
-    State of Board FEN: {board_state}
+    State of Board: {board_state}
 
     These are all of the moves played so far:
     white moves: {white_moves}
@@ -158,9 +163,9 @@ aggregator_moa_template = """
 
     It is your turn to play. You are playing as {playing_as}.
 
-    The current board state is represented as a FEN string.
+    The current board state is represented as a sequence of UCI moves.
 
-    State of Board FEN: {board_state}
+    State of Board: {board_state}
 
     These are all of the moves played so far:
     white moves: {white_moves}

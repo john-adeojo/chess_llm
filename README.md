@@ -67,6 +67,7 @@ In your PowerShell, ensure your current working directory is `lichess-bot`. Then
 ```sh
 python lichess-bot.py -u
 ```
+**Note:**If step 5 doesn't work the first time you run it, wait a moment and run it again!
 
 ### 6. Run your Bot
 
@@ -74,9 +75,9 @@ You can run your Lichess bot by running:
 ```sh
 python lichess-bot.py -v
 ```
-You may omit the `-v` option if you prefer a less verbose output. Verbosity will help with debugging.
+You may omit the `-v` option if you prefer a less verbose output. Verbosity will help with `debugging.
 
-### 8. Challenge your Bot
+### 7. Challenge your Bot
 
 Once your bot is online, you can challenge it against a computer or a human online player through the Lichess interface.
 

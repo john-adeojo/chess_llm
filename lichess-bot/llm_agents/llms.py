@@ -130,7 +130,7 @@ def get_llm_response_claude(json_mode, system_prompt, model=None, temperature=0)
         payload['messages'][0]['content'] += "Return the specified JSON, do not prepend your response with anything."
 
     response_dict = requests.post(model_endpoint, headers=headers, data=json.dumps(payload))
-    logging.debug(response_dict.json())
+    # logging.debug(response_dict.json())
     response_json = response_dict.json()
 
     if json_mode == False:

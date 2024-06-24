@@ -50,26 +50,6 @@ def load_game_state():
     return {}
 
 
-# def get_lichess_pgn(game_id):
-#     url = f"https://lichess.org/game/export/{game_id}.pgn"
-#     response = requests.get(url)
-#     if response.status_code == 200:
-#         return response.text
-#     else:
-#         return None
-
-
-# def get_lichess_pgn(game_id):
-#     url = f"https://lichess.org/game/export/{game_id}.pgn"
-#     response = requests.get(url)
-#     if response.status_code == 200:
-#         return response.text
-#     else:
-#         logger.error("Failed to fetch PGN for game_id %s: %s", game_id, response.status_code)
-#         return None
-
-
-
 class SingleAgentLLM(MinimalEngine):
 
     def search(self, board: chess.Board, time_limit: Limit, ponder: bool, draw_offered: bool, root_moves: MOVE) -> PlayResult:
@@ -82,7 +62,7 @@ class SingleAgentLLM(MinimalEngine):
         playing_as = 'White' if board.turn == chess.WHITE else 'Black'
         board_state = load_game_state()
         logger.info("\n\nBOARD STATE ♟️: %s", pprint.pformat(board_state))
-        model = 'gpt-4o'
+        model = 'claude-3-5-sonnet-20240620'
         master1_system_prompt = chess_engine_prompt.format(playing_as=playing_as, 
                                                         board_state=board_state, 
                                                         white_moves=white_moves, 
@@ -90,7 +70,7 @@ class SingleAgentLLM(MinimalEngine):
                                                         possible_moves=possible_moves
                                                         )
         
-        master1_response = get_llm_response_openai(json_mode=True, system_prompt=master1_system_prompt, temperature=0, model=model)
+        master1_response = get_llm_response_claude(json_mode=True, system_prompt=master1_system_prompt, temperature=0, model=model)
         logger.info("\n\n CHESS MASTER ♞: %s", master1_response)
 
         move = master1_response['best_move']
